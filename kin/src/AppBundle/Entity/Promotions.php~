@@ -71,6 +71,15 @@ class Promotions
      */
     private $status;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Company")
+     * @ORM\JoinColumn(name="company_id", referencedColumnName="company_id")
+     */
+    private $company;
+
+
+
+
 
 
     /**
@@ -196,5 +205,28 @@ class Promotions
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set company
+     *
+     * @param \AppBundle\Entity\Company $company
+     * @return Promotions
+     */
+    public function setCompany($company)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return \AppBundle\Entity\Company 
+     */
+    public function getCompany()
+    {
+        return $this->company;
     }
 }

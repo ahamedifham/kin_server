@@ -72,6 +72,13 @@ class Family
     private $noOfMembers;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="admin_user_id", referencedColumnName="id")
+     */
+
+    private $adminUser;
+
+    /**
      * Get familyId
      *
      * @return integer 
@@ -217,5 +224,28 @@ class Family
     public function getNoOfMembers()
     {
         return $this->noOfMembers;
+    }
+
+    /**
+     * Set adminUser
+     *
+     * @param \AppBundle\Entity\User $adminUser
+     * @return Family
+     */
+    public function setAdminUser($adminUser)
+    {
+        $this->adminUser = $adminUser;
+
+        return $this;
+    }
+
+    /**
+     * Get adminUser
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getAdminUser()
+    {
+        return $this->adminUser;
     }
 }

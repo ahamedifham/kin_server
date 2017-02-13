@@ -82,6 +82,17 @@ class User
      */
     private $status;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="FamilyRole")
+     * @ORM\JoinColumn(name="family_role_id", referencedColumnName="family_role_id")
+     */
+    private $familyRole;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Family")
+     * @ORM\JoinColumn(name="family_id", referencedColumnName="family_id")
+     */
+    private $familyKey;
 
     /**
      * Get id
@@ -298,5 +309,51 @@ class User
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set familyRole
+     *
+     * @param \AppBundle\Entity\FamilyRole $familyRole
+     * @return User
+     */
+    public function setFamilyRole($familyRole)
+    {
+        $this->familyRole = $familyRole;
+
+        return $this;
+    }
+
+    /**
+     * Get familyRole
+     *
+     * @return \AppBundle\Entity\FamilyRole 
+     */
+    public function getFamilyRole()
+    {
+        return $this->familyRole;
+    }
+
+    /**
+     * Set familyKey
+     *
+     * @param \AppBundle\Entity\Family $familyKey
+     * @return User
+     */
+    public function setFamilyKey($familyKey)
+    {
+        $this->familyKey = $familyKey;
+
+        return $this;
+    }
+
+    /**
+     * Get familyKey
+     *
+     * @return \AppBundle\Entity\Family 
+     */
+    public function getFamilyKey()
+    {
+        return $this->familyKey;
     }
 }

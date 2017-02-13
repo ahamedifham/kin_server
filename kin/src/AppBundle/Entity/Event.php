@@ -79,6 +79,19 @@ class Event
     private $eventDescription;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Family")
+     * @ORM\JoinColumn(name="family_id", referencedColumnName="family_id")
+     */
+    private $familyKey;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+
+    private $userKey;
+
+    /**
      * Get eventId
      *
      * @return integer 
@@ -247,5 +260,51 @@ class Event
     public function getEventDescription()
     {
         return $this->eventDescription;
+    }
+
+    /**
+     * Set familyKey
+     *
+     * @param \AppBundle\Entity\Family $familyKey
+     * @return Event
+     */
+    public function setFamilyKey($familyKey)
+    {
+        $this->familyKey = $familyKey;
+
+        return $this;
+    }
+
+    /**
+     * Get familyKey
+     *
+     * @return \AppBundle\Entity\Family 
+     */
+    public function getFamilyKey()
+    {
+        return $this->familyKey;
+    }
+
+    /**
+     * Set userKey
+     *
+     * @param \AppBundle\Entity\User $userKey
+     * @return Event
+     */
+    public function setUserKey($userKey)
+    {
+        $this->userKey = $userKey;
+
+        return $this;
+    }
+
+    /**
+     * Get userKey
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getUserKey()
+    {
+        return $this->userKey;
     }
 }
